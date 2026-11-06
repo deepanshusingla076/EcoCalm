@@ -942,6 +942,10 @@ app.post("/api/breathe/complete", async (req, res) => {
   }
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🌸 EcoCalm backend running on 0.0.0.0:${PORT}`);
-});
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🌸 EcoCalm backend running on 0.0.0.0:${PORT}`);
+  });
+}
+
+export default app;
